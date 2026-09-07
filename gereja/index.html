@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GerejaKristus Cinta Kasih</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo-area">
+        <img src="logo gki.png" alt="Logo GKI Tuban" class="logo-icon">
+        <div class="logo-text">
+          <span class="church-name">Gereja GKI Tuban</span>
+          <span class="church-motto">"Bertumbuh dalam Kasih"</span>
+        </div>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="main-nav" id="mainNav">
+      <a href="#jadwal" class="nav-link active">Jadwal Ibadah</a>
+      <a href="#warta" class="nav-link">Warta Jemaat</a>
+      <a href="#jemaat-baru" class="nav-link">Jemaat Baru</a>
+      <a href="#doa" class="nav-link">Permohonan Doa</a>
+      <a href="profil.html" class="nav-link">Profil GKI Tuban</a>
+    </nav>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero-banner">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-verse">"Marilah kita datang kepada-Nya dengan penuh keyakinan"</p>
+      <p class="hero-ref">— Ibrani 4:16</p>
+    </div>
+  </section>
+
+  <main class="main-content">
+
+    <!-- ===================== JADWAL IBADAH ===================== -->
+    <section id="jadwal" class="section-block">
+      <div class="section-header">
+        <h2>Jadwal Ibadah</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="schedule-tabs">
+        <button class="tab-btn active" data-tab="raya">Ibadah Raya / Umum</button>
+        <button class="tab-btn" data-tab="anak">Sekolah Minggu</button>
+        <button class="tab-btn" data-tab="kpr">KPR (Pemuda &amp; Remaja)</button>
+      </div>
+
+      <div class="tab-content active" id="tab-raya">
+        <div class="schedule-card">
+          <div class="schedule-day">Minggu</div>
+          <div class="schedule-detail">
+            <strong>Ibadah Raya I</strong>
+            <span>07:00 — 08:30 WIB</span>
+          </div>
+        </div>
+        <div class="schedule-card">
+          <div class="schedule-day">Minggu</div>
+          <div class="schedule-detail">
+            <strong>Ibadah Raya II</strong>
+            <span>09:00 — 10:30 WIB</span>
+          </div>
+        </div>
+        <div class="schedule-card">
+          <div class="schedule-day">Rabu</div>
+          <div class="schedule-detail">
+            <strong>Ibadah Doa &amp; Puji</strong>
+            <span>18:30 — 20:00 WIB</span>
+          </div>
+        </div>
+        <div class="schedule-card">
+          <div class="schedule-day">Kamis</div>
+          <div class="schedule-detail">
+            <strong>Ibadah Persekutuan</strong>
+            <span>19:00 — 20:30 WIB</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="tab-anak">
+        <div class="schedule-card">
+          <div class="schedule-day">Minggu</div>
+          <div class="schedule-detail">
+            <strong>Sekolah Minggu Kelompok Batita &amp; Balita</strong>
+            <span>07:00 — 08:15 WIB</span>
+          </div>
+        </div>
+        <div class="schedule-card">
+          <div class="schedule-day">Minggu</div>
+          <div class="schedule-detail">
+            <strong>Sekolah Minggu Kelompok SD</strong>
+            <span>09:00 — 10:30 WIB</span>
+          </div>
+        </div>
+        <div class="schedule-card">
+          <div class="schedule-day">Sabtu</div>
+          <div class="schedule-detail">
+            <strong>Kegiatan Kreatif Anak</strong>
+            <span>15:00 — 16:30 WIB</span>
+          </div>
+        </div>
+      </div>
+
+      
+        </div>
+        <div class="schedule-card">
+          <div class="schedule-day">Sabtu</div>
+          <div class="schedule-detail">
+            <strong>Komisi Pemuda (Kuliah &amp; Kerja)</strong>
+            <span>18:00 — 19:30 WIB</span>
+          </div>
+        </div>
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== WARTA JEMAAT ===================== -->
+    <section id="warta" class="section-block section-warta">
+      <div class="section-header">
+        <h2>Warta Jemaat</h2>
+        <div class="section-divider"></div>
+      </div>
+      <p class="section-desc">Berita dan informasi terbaru untuk jemaat GKI Tuban.</p>
+
+      <div class="warta-date" id="wartaDate"></div>
+
+      <div class="warta-list" id="wartaBody">
+        <p class="warta-item-teks">Memuat warta...</p>
+      </div>
+    </section>
+
+    <!-- ===================== FORMULIR JEMAAT BARU ===================== -->
+    <section id="jemaat-baru" class="section-block">
+      <div class="section-header">
+        <h2>Formulir Jemaat Baru</h2>
+        <div class="section-divider"></div>
+      </div>
+      <p class="section-desc">Bagi saudara/i yang baru pertama kali menghadiri ibadah bersama kami, silakan mengisi formulir berikut agar kami dapat lebih mengenal Anda.</p>
+
+      <form class="church-form" id="formJemaatBaru">
+        <div class="form-group">
+          <label for="namaLengkap">Nama Lengkap</label>
+          <input type="text" id="namaLengkap" placeholder="Contoh: Maria Susanti" required>
+        </div>
+        <div class="form-group">
+          <label for="tanggalLahir">Tanggal Lahir</label>
+          <input type="date" id="tanggalLahir" required>
+        </div>
+        <div class="form-group">
+          <label for="noTelp">Nomor Telepon / WhatsApp</label>
+          <input type="tel" id="noTelp" placeholder="08xxxxxxxxxx" required>
+        </div>
+        <div class="form-group">
+          <label for="alamatRumah">Alamat Rumah</label>
+          <input type="text" id="alamatRumah" placeholder="Contoh: Jl. Kenanga No. 10, Tuban" required>
+        </div>
+        <button type="submit" class="btn-submit">Kirim Data</button>
+      </form>
+      <div class="form-success" id="successJemaat" style="display:none;">
+        <div class="success-icon">&#10003;</div>
+        <p>Terima kasih! Data Anda sudah kami terima. Tuhan Yesus memberkati.</p>
+      </div>
+    </section>
+
+    <!-- ===================== PROFILE SEJARAH GKI TUBAN ===================== -->
+    <section id="profile" class="section-block">
+      <div class="section-header">
+        <h2>Profile Sejarah GKI Tuban</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="profile-content">
+        <p class="profile-intro">Berikut adalah sejarah singkat perkembangan Gereja Kristus Cinta Kasih (GKI) Tuban:</p>
+        <div class="history-timeline">
+          <div class="timeline-item">
+            <div class="timeline-year">1984</div>
+            <div class="timeline-desc">GKI Jatim Bojonegoro mencanangkan visi pengembangan jemaat ke kota terdekat Tuban. Lakukan survey dan didoakan tahun 1984-1985.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">5 Mei 1985</div>
+            <div class="timeline-desc">Persekutuan keluarga dimulai pertama kali di rumah keluarga Makturi Siswoharsono, hadiri 35 orang.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">5 Januari 1986</div>
+            <div class="timeline-desc">Mulaiknya kebaktian minggu secara rutin tiap minggu sore pukul 16.30 WIB. Kejadian pertama sekaligus perayaan Natal 1985 dan Tahun Baru 1986.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">23 Februari 1986</div>
+            <div class="timeline-desc">Peneguhan panitia Cabang Tuban dalam kebaktian umum pukul 16.30 Wib.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">1992 - 1993</div>
+            <div class="timeline-desc">Peroleh akta Hibah, Ijin Prinsip, dan Ijin Mendirikan Bangunan. Pemilihan lokasi tempat peribadatan sementara di Jl Kawatan IX diberikan sebagai hibeah tanah oleh pemilik.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">5 Januari 1994</div>
+            <div class="timeline-desc">Gedung GKI Cabang Tuban disesakan pemakaian oleh Bupati KDH TK.II Tuban, Bapak Drs Sjoekoer Soetomo.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">5 Januari 1995</div>
+            <div class="timeline-desc">Dinaikkan menjadi GKI Jatim Tuban pada HUT ke-9 Cabang Tuban.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">2006</div>
+            <div class="timeline-desc">Ditahbinkan menjadi Pendeta GKI Tuban: Sdr Kristianto Basuki S.Si.</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-year">Pengembangan Gedung</div>
+            <div class="timeline-desc">Dimulai pembangunan gedung 2 lantai disebelah gedung gereja untuk mengakomodasi pertumbuhan jemaat dan ruang sekolah minggu di lantai 2.</div>
+          </div>
+        </div>
+        <p class="profile-conclusion">Demikianlah perkembangan GKI Tuban dari mulai sebagai persekutuan keluarga hingga menjadi gereja independen dengan proram pelayanan yang berkembang. Kiranya Tuhan segala gereja senantiasa dipermuliakan.</p>
+      </div>
+    </section>
+
+    <!-- ===================== PERMOHONAN DOA ===================== -->
+    <section id="doa" class="section-block section-doa">
+      <div class="section-header">
+        <h2>Permohonan Doa</h2>
+        <div class="section-divider"></div>
+      </div>
+      <p class="section-desc">Saudara/i dapat menyampaikan pokok-pokok doa melalui formulir ini. Tim doa kami akan mendoakan dengan setia.</p>
+
+      <form class="church-form" id="formDoa">
+        <div class="form-group">
+          <label for="pokokDoa">Pokok Doa</label>
+          <textarea id="pokokDoa" rows="5" placeholder="Tuliskan permohonan doa Anda di sini..." required></textarea>
+        </div>
+        <div class="form-group form-group-privacy">
+          <label class="privacy-label">Privasi Doa</label>
+          <div class="privacy-options">
+            <label class="radio-option">
+              <input type="radio" name="privasiDoa" value="rahasia" checked>
+              <span class="radio-mark"></span>
+              Rahasia — Hanya tim doa
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="privasiDoa" value="publik">
+              <span class="radio-mark"></span>
+              Public — Dapat dibaca jemaat
+            </label>
+          </div>
+        </div>
+        <button type= "submit" class="btn-submit btn-submit-doa">Kirim Permohonan Doa</button>
+      </form>
+      <div class="form-success" id="successDoa" style="display:none;">
+        <div class="success-icon">&#10003;</div>
+        <p>Doa Anda telah kami terima. Tuhan mendengar dan menjawab.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p class="footer-church">Gereja Gki Tuban</p>
+      <p class="footer-addr">Jl. Dr. Wahidin Sudirohusodo, Gg. Mina, No. 135 Tuban</p>
+      <p class="footer-contact">Telp/WA: 0813-3435-6727</p>
+
+<!-- Social Media -->
+      <div class="footer-social">
+        <span class="social-label">Ikuti Kami</span>
+        <div class="social-links">
+          <a href="https://youtube.com/@gkituban9450?si=iukGrqGW1n6qjqFo" target="_blank" rel="noopener noreferrer" class="social-link social-youtube" aria-label="YouTube GKI Tuban" title="YouTube">
+            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12 9.545 15.568z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/gkituban_ig?stkn=Ymo0MHdiZG41a2xi" target="_blank" rel="noopener noreferrer" class="social-link social-instagram" aria-label="Instagram GKI Tuban" title="Instagram">
+            <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link social-facebook" aria-label="Facebook GKI Tuban" title="Facebook">
+            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://wa.me/6281334356727" target="_blank" rel="noopener noreferrer" class="social-link social-whatsapp" aria-label="WhatsApp GKI Tuban" title="WhatsApp">
+            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.454.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.472.099-.173.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.396.01-.594.01-.198 0-.42.01-.618.075-.198.074-.402.15-.57.224-.297.15-.669.224-1.044.074-.372-.149-1.094-.573-1.492-1.425-.396-.853-.6-.963-.84-.997-.24-.033-.51-.074-.789.1-.297.174-1.048.74-1.348 1.474-.3.736-.397 1.264-.248 1.553.134.274.42.593.805 1.01.396.42.855.955.997 1.154.075.099.14.198.18.3.04.099.04.199-.055.298-.074.099-.18.248-.375.248-.188 0-.574-.173-.854-.274-.323-.12-.607-.274-.805-.423-.198-.149-.497-.446-.57-.446-.099 0-.198.074-.247.124a.76.76 0 0 0-.124.198c-.075.274-.298.916-.373 1.19-.074.274-.099.472-.074.646.025.174.1.347.223.447.273.224 1.094 1.355 1.517 2.39.298.734.446 1.308.496 1.483.05.198.05.396.024.57-.024.174-.223.224-.447.298-.248.074-.522.05-.794.025-.199-.025-.423-.05-.62-.15-.198-.1-.371-.274-.547-.472-.174-.198-.273-.423-.323-.646-.05-.223-.024-.371.05-.52.074-.15.201-.323.349-.472.174-.173.374-.323.62-.423.273-.1.597-.05.945.025.372.074 1.397.524 1.842 1.524.396.88.523 1.676.597 2.175.049.348.024.524-.124.67-.149.149-.397.173-.62.074-.198-.074-.396-.248-.594-.423-.173-.173-.3-.397-.423-.646-.074-.199-.05-.372.025-.547.074-.198.248-.472.472-.646.248-.174.573-.248.849-.174.397.075.794.174 1.019.373.224.223.472.523.646.849.174.323.198.573.074.794-.124.224-.373.323-.598.15a1.77 1.77 0 0 1-.647-.597 1.73 1.73 0 0 1-.348-.67c-.074-.249-.05-.473.05-.647.074-.199.273-.373.523-.447.274-.074.548-.05.823.05.174 0 .373-.025.547-.1.174-.074.397-.223.62-.398.224-.174.423-.374.597-.598.173-.223.223-.446.124-.62-.075-.149-.3-.274-.573-.3-.247-.025-.523-.025-.798-.025-.274 0-.548.025-.823.1-.273.074-.522.249-.746.473-.224.224-.423.524-.597.798-.174.274-.323.523-.398.748-.075.224-.075.423-.05.597.025.173.124.373.298.473.223.124.446.149.745.124.298-.025.62-.075.945-.274.323-.198.62-.473.895-.798.274-.323.523-.72.646-1.19.124-.473.05-1.019-.249-1.468a1.76 1.76 0 0 0-.648-.62c-.223-.173-.447-.3-.697-.374-.273-.074-.573-.1-.873-.1-.173 0-.347.025-.52.075z"/></svg>
+          </a>
+          <a href="gki_tuban@yahoo.com " class="social-link social-email" aria-label="Email GKI Tuban" title="Email">
+            <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
+      </div>
+      </div>
+
+      <div class="footer-divider"></div>
+      <p class="footer-copy">&copy; 2026 GKI TUBAN.</p>
+      <!-- Tombol masuk admin, dikhususkan untuk pengurus gereja -->
+      <a href="admin.html" class="btn-admin-access">&#128274; Masuk Admin</a>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>

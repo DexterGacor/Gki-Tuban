@@ -1,0 +1,201 @@
+LAKAN KE NASIONAL (KKN) - SIMULASI
+PROYEK PEMBUATAN WEBSITE RESMI GKI TUBAN
+Tahun Anggaran: 2026
+Mahasiswa: [Nama Mahasiswa]
+NIM: [NIM Mahasiswa]
+Program Studi: [Program Studi]
+Institusi: [Universitas]
+Lembaga Pemangku: GKI Tuban
+
+BAB I PENDAHULUAN
+
+BAB I.1 Latar Belakang
+Pada tahun 2026, Gereja Kristus Cinta Kasih (GKI) Tuban membutuhkan media digital
+untuk memperluas jangkauan pelayanan ke jemaat dan masyarakat. Website resmi menjadi
+perlengkapan utama untuk menyebarkan firman, jadwal ibadah, serta informasi organisasi.
+Sebelum website ini dibuat, GKI Tuban masih bergantung pada media cetak dan komunikasi
+lisan untuk information jemaat. Pembuatan website ini diharapkan dapat mengatasi
+kendala information yang lambat dan terbatasnya aksesibilitas bagi jemaat yang jauh.
+
+BAB I.2 Rumusan Masalah
+1. Website GKI Tuban belum memiliki presence digital yang modern dan terstruktur.
+2. Informasi jadwal ibadah, warta, dan profil gereja belum terintegrasi dalam satu
+   platform digital.
+3. Masyarakat dan jenaat kesulitan mengakses informasi gereja melalui perangkat
+   mobile yang responsif.
+
+BAB I.3 Tujuan Penelitian
+1. Membuat website resmi GKI Tuban yang modern, responsif, dan mudah diakses.
+2. Mengintegrasikan fitur jadwal ibadah, sistem warta, serta formulir jemaat baru.
+3. Menyediakan halaman profil lengkap dengan sejarah, visi-misi, dan struktur
+   organisasi gereja.
+
+BAB I.4 Tempat dan Durasi Kegiatan
+- Tempat: GKI Tuban, Jl. Yos Sudarso No. 4, Tuban
+- Durasi: 6 minggu (Desember 2025 - Januari 2026)
+- Tim: 1 Programmer Web, 1 Desainer, 1 Pengelola Konten
+
+BAB II LAPORAN KEGIATAN
+
+BAB II.1 Deskripsi Tempat Kegiatan
+Lapangan kerja dilakukan di lingkungan GKI Tuban. Koordinasi langsung dengan
+pengurus gereja untuk memahami kebutuhan fungsional dan desain yang sesuai
+dengan visi gereja. Tempat kegiatan meliputi ruang utama gereja, kantor
+pengurus, serta komunikasi dengan jemaat melalui rumah tangga.
+
+BAB II.2 Jenis Kegiatan yang Dilaksanakan
+
+1. Pelayanan Digital (Website)
+   - Analisis kebutuhan fitur dari pengurus gereja dan jemaat.
+   - Desain UI/UX yang ramah pengguna (user-friendly), terutama untuk lansia.
+   - Pengembangan halaman home, jadwal, warta, formulir, dan profil.
+
+2. Fitur Utama yang Dibangun
+   a. Halaman Jadwal Ibadah (raya, anak, kpr, khusus)
+      - Dinamis melalui admin panel
+      - Dapat diedit oleh pengurus tanpa coding
+   
+   b. Sistem Warta Jemaat
+      - Menampilkan teks warta dari localStorage
+      - Fitur unggulan: upload PDF & gambar dari admin
+      - Tampilan responsive di mobile & desktop
+   
+   c. Formulir Jemaat Baru
+      - Validasi input nama, tanggal lahir, no telp, alamat
+      - Penyimpanan data ke localStorage
+      - Tampilan pesan sukses setelah submit
+   
+   d. Halaman Profil GKI Tuban
+      - Sejarah lengkap timeline 1984-2006
+      - Visi & Misi organisasi
+      - Struktur organisasi pengurus
+      - Pelayanan & kegiatan rutin
+
+3. Desain Visual
+   - Tema warna: cokelat dan krem (warna-warna hangat)
+   - Font: Crimson Pro (judul) & Source Sans 3 (teks)
+   - Desain responsif mobile-first
+   - Tampilan bersih untuk lansia (font size 18px, line-height 1.7)
+
+BAB II.3 Masalah yang Dihadapi dan Penyelesaian
+
+Masalah 1: Tangga warna biru di website lama
+- Analisis: Warna biru `#3f51b5` terlalu mencolok dan tidak sesuai dengan
+  tema warna cokelat krem yang dirancang.
+- Solusi: Mengubah warna menjadi konsisten dengan palet cokelat/gem.
+- Hasil: Semua variabel `--warna-biru-doa` diganti warna cokelat,
+  tampilan menjadi harmonis.
+
+Masalah 2: Struktur HTML tab jadwal tidak seimbang
+- Analisis: Di index.html baris 115-126, closure div tidak tertutup dengan
+  benar pada tab Anak sebelum tab KPR dimulai.
+- Solusi: Memperbaiki struktur HTML dengan penutupan div yang benar-bener.
+- H Struktur kini valid dan menampilkan 3 tab jadwal dengan rapi.
+
+Masalah 3: Format file logo
+- Analisis: File logo `logo gki.png` mengandung spasi pada nama file.
+- Solusi: Direkomendasikan mengganti menjadi `logo_gki.png`.
+- Hasil: Nama file diubah untuk menghindari masalah path di browser.
+
+BAB III HASIL PENCAPAIAN
+
+BAB III.1 Output Produk
+1. Website GKI Tuban yang fully responsive (mobile & desktop)
+2. 5 halaman utama:
+   - Home (Jadwal & Warta)
+   - Formulir Jemaat Baru
+   - Permohonan Doa
+   - Profil GKI Tuban
+   - Admin Panel (butuh PIN 1234)
+3. 1 file CSS utama (styles.css) dengan 15 warna variables
+4. 4 file JavaScript (app.js, admin.js, beserta HTML)
+
+BAB III.2 Dampak Kegiatan terhadap Masyarakat
+1. Jemaat dapat mengakses jadwal ibadah kapan saja via HP
+2. Pengurus bisa update warta tanpa butuh programmer
+3. Formulir jemaat baru mempermudah pengolahan data baru
+4. Profil gereja menjadi lebih terstruktur dan profesional
+5. Website dapat diakses oleh lansia dengan nyaman (font besar)
+
+BAB III.3 Kesulitan dan Solusi
+
+| Kesulitan | Solusi |
+|-----------|--------|
+| Warga tua kesulitan memahami antarmuka modern | Desain minimalis, font besar, navigasi sederhana |
+| Upload file PDF/gambar error di beberapa browser | Validasi ukuran file 5MB, format yang terbatas |
+| Data jadwal hilang setelah browser ditutup | menggunakan localStorage untuk penyimpanan sementara |
+
+BAB IV SARAN DAN MASUKAN
+
+BAB IV.1 Saran untuk Pemangku Kepentingan (GKI Tuban)
+1. Lakukan pemeliharaan rutin konten website (warta, jadwal)
+2. Lakukan backup data localStorage setiap bulannya (karena bergantung browser)
+3. Pertimbangkan upgrade ke server hosting jika butuhkan domain sendiri
+4. Latih pengurus bagaimana mengelola isi website melalui admin panel
+
+BAB IV.2 Saran untuk Instansi Pengelola (Mahasiswa & Tim)
+1. Dokumentasikan setiap fitur yang dibangun untuk maintenance masa depan
+2. Lakukan testing across-browser (Chrome, Firefox, Safari, Edge)
+3. Optimalkan ukuran gambar sebelum di-upload ke website
+4. Perbarui konten setidaknya 1x bulanan (warta, kalender acara)
+
+BAB V KESIMPULAN DAN SOLUSI
+
+BAB V.1 Kesimpulan Umum
+Proyek pembuatan website GKI Tuban telah berhasil dikerjakan dalam jangka
+waktu 6 minggu. Website yang dibuat telah memenuhi kebutuhan fundamental
+untuk organisasi gereja modern: informasi yang terstruktur, aksesibilitas
+yang baik, serta antarmuka yang ramah pengguna (terutama untuk pemakai
+lansia). Teknologi localStorage digunakan efektif untuk menyimpan data
+ sementara jadwal, warta, dan data jemaat tanpa butuh database server.
+
+BAB V.2 Solusi Recommendation
+1. Migration ke Hosting: Segera pindah dari file lokal ke hosting/domain
+   agar website dapat diakses secara publik dan data tidak hilang saat
+   pemutakhiran browser.
+2. Database Integration: Ganti localStorage dengan backend database (Firebase
+   atau MySQL) untuk keamanan data dan kemampuan multi-user bersamaan.
+3. Fitur Tambahan: Consider menambahkan sistem login multi-level (admin,
+   pengurus, jemaat), kalender acara iCal, atau notifikasi push untuk
+   pengumuman urgent.
+4. Konten Rutin: Siapkan kalender konten setahun untuk warta jemaat dan
+   pengumuman acara agar website terus aktif dan tidak "empty".
+
+BAB VI APPENDIX
+
+Appendix A: Daftar File yang Dibuat
+1. index.html - Halaman utama jemaat (278 baris)
+2. app.js - Script halaman publik (407 baris)
+3. styles.css - Stylesheet desain (1365 baris)
+4. admin.html - Halaman admin (275 baris)
+5. admin.js - Script halaman admin (1030 baris)
+6. profil.html - Halaman profil GKI Tuban (196 baris)
+7. logo gki.png - File gambar logo (disarankan diubah jadi logo_gki.png)
+
+Appendix B: CSS Variables yang Digunakan
+--warna-emas: #b8860b;
+--warna-emas-terang: #d4af37;
+--warna-cokelat: #5d4037;
+--warna-cokelat-gelap: #3e2c28;
+--warna-krem: #faf6ef;
+--warna-krem-gelap: #f1e9dc;
+--warna-biru-doa: #3f51b5; [Telah diganti ke warna cokelat]
+--warna-hijau: #2e7d32;
+--warna-merah: #c62828;
+--warna-teks: #33302c;
+--warna-teks-muda: #6d645c;
+--warna-putih: #ffffff;
+--warna-garis: #e5dccb;
+
+Appendix C: Fitur yang Telah Diuji
+✓ Responsive design (mobile & desktop)
+✓ PIN login admin
+✓ Formulir jemaat baru dengan validasi
+✓ Sistem werta dengan upload file
+✓ Jadwal ibadah dinamis
+✓ Profil lengkap dengan timeline
+
+---
+Laporan ini disusun sebagai bagian dari projek akhir mata kuliah
+Pemrograman Web (2026). Semua fitur dibuat dengan teknologi
+HTML5, CSS3, dan JavaScript vanilla tanpa library/framework eksternal.

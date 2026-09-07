@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Gereja Kristus Cinta Kasih</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="admin-page">
+
+  <!-- PIN Screen -->
+  <div class="pin-screen" id="pinScreen">
+    <div class="pin-card">
+      <div class="pin-lock">&#128274;</div>
+      <h2>Halaman Pengurus</h2>
+      <p>Masukkan PIN 4 angka untuk melanjutkan</p>
+      <input type="password" id="pinInput" inputmode="numeric" maxlength="4" placeholder="••••" autocomplete="off">
+      <div class="pin-error" id="pinError" style="display:none;">PIN salah, coba lagi.</div>
+      <button class="btn-submit" id="pinBtn">Masuk</button>
+    </div>
+  </div>
+
+  <!-- Admin Main (hidden until PIN verified) -->
+  <div class="admin-wrap" id="adminWrap" style="display:none;">
+
+    <header class="admin-header">
+      <div class="admin-header-inner">
+        <a href="index.html" class="btn-back">&#8592; Kembali ke Tampilan Jemaat</a>
+        <h1>Panel Pengurus</h1>
+        <button class="btn-outline" id="logoutBtn">Keluar</button>
+      </div>
+    </header>
+
+    <!-- Menu navigasi admin: memisahkan tiap bagian agar tidak menumpuk -->
+    <nav class="admin-menu" id="adminMenu">
+      <button class="admin-menu-btn active" data-page="dashboard">📊 Dashboard</button>
+      <button class="admin-menu-btn" data-page="warta">📰 Warta</button>
+      <button class="admin-menu-btn" data-page="jadwal">🗓️ Jadwal</button>
+      <button class="admin-menu-btn" data-page="jemaat">👥 Data Jemaat</button>
+      <button class="admin-menu-btn" data-page="doa">🙏 Pokok Doa</button>
+    </nav>
+
+    <main class="admin-main">
+
+      <!-- ==================== HALAMAN MENU: DASHBOARD ==================== -->
+      <div class="admin-menu-page" id="halaman-dashboard">
+
+        <section class="admin-dashboard">
+          <div class="stat-cards">
+            <div class="stat-card">
+              <span class="stat-num" id="statJemaat">0</span>
+              <span class="stat-label">Jemaat Terdaftar</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num" id="statDoa">0</span>
+              <span class="stat-label">Pokok Doa Masuk</span>
+            </div>
+            <div class="stat-card birthday-card">
+              <span class="stat-num" id="statUlang">0</span>
+              <span class="stat-label">Ulang Tahun Hari Ini</span>
+            </div>
+          </div>
+
+          <!-- Birthday Reminder -->
+          <div class="admin-panel" id="birthdayPanel">
+            <div class="panel-title">
+              <h2>&#127881; Ulang Tahun Hari Ini</h2>
+            </div>
+            <div id="birthdayList">
+              <p class="empty-note">Tidak ada jemaat yang berulang tahun hari ini.</p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- ==================== HALAMAN MENU: WARTA ==================== -->
+      <div class="admin-menu-page" id="halaman-warta" style="display:none;">
+
+        <section class="admin-panel">
+          <div class="panel-title">
+            <h2>Update Warta Jemaat</h2>
+          </div>
+          <div class="admin-form">
+            <div class="form-group">
+              <label for="wartaText">Teks Warta Jemaat — Akan ditampilkan di halaman publik</label>
+              <textarea id="wartaText" rows="6" placeholder="Tulis warta terbaru di sini..."></textarea>
+            </div>
+            <div class="form-group">
+              <label for="wartaFile">Tambah File Warta (PDF / Gambar) — Opsional</label>
+              <input type="file" id="wartaFile" accept=".pdf,.png,.jpg,.jpeg,.gif,.webp">
+              <small class="form-hint">Format: PDF, PNG, JPG, GIF, WebP. Maksimal 5 MB.</small>
+            </div>
+            <div id="filePreview" style="display:none; margin-top:10px;">
+              <strong>File dipilih:</strong> <span id="fileName"></span>
+              <button type="button" class="btn-outline btn-small" id="removeFileBtn" style="margin-left:10px;">Hapus</button>
+            </div>
+            <button class="btn-submit" id="saveWartaBtn">Simpan Warta</button>
+            <button class="btn-outline btn-cancel-edit" id="batalEditWartaBtn" style="display:none; margin-top:10px;">Batalkan Edit</button>
+            <div class="inline-msg" id="msgWarta" style="display:none;">Warta berhasil disimpan &#10003;</div>
+          </div>
+        </section>
+
+        <section class="admin-panel">
+          <div class="panel-title">
+            <h2>Daftar Warta Tersimpan</h2>
+            <p class="panel-sub">Klik Edit untuk mengubah, atau Hapus untuk membuang warta.</p>
+          </div>
+          <div class="table-scroll">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Tanggal</th>
+                  <th>Isi (Preview)</th>
+                  <th>File</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="wartaTableBody"></tbody>
+            </table>
+          </div>
+          <div class="empty-note" id="emptyWartaList">Belum ada warta tersimpan.</div>
+        </section>
+
+      </div>
+
+      <!-- ==================== HALAMAN MENU: JADWAL ==================== -->
+      <div class="admin-menu-page" id="halaman-jadwal" style="display:none;">
+
+        <section class="admin-panel">
+          <div class="panel-title">
+            <h2>Tambah / Edit Jadwal Ibadah</h2>
+            <p class="panel-sub">Pilih kategori, isi hari/nama/jam, lalu tambah. Gunakan tombol Edit untuk mengubah jadwal yang sudah ada.</p>
+          </div>
+          <div class="admin-form">
+            <div class="form-group">
+              <label for="kategoriJadwal">Kategori Ibadah</label>
+              <select id="kategoriJadwal">
+                <option value="raya">Ibadah Raya / Umum</option>
+                <option value="anak">Sekolah Minggu</option>
+                <option value="kpr">KPR (Pemuda &amp; Remaja)</option>
+                <option value="khusus">Ibadah Khusus Lainnya</option>
+              </select>
+            </div>
+            <!-- Kolom nama kategori, hanya dipakai bila pilihan "Ibadah Khusus Lainnya" -->
+            <div class="form-group" id="grupNamaKhusus" style="display:none;">
+              <label for="namaKhusus">Nama Ibadah Khusus (mis. Ibadah Natal, Ibadah Syukur)</label>
+              <input type="text" id="namaKhusus" placeholder="Contoh: Ibadah Natal — 25 Desember">
+            </div>
+            <div class="form-row">
+              <div class="form-group form-col">
+                <label for="hariJadwal">Hari</label>
+                <input type="text" id="hariJadwal" placeholder="Contoh: Minggu">
+              </div>
+              <div class="form-group form-col">
+                <label for="jamJadwal">Jam</label>
+                <input type="text" id="jamJadwal" placeholder="Contoh: 09:00 — 11:00 WIB">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="namaKegiatan">Nama Kegiatan</label>
+              <input type="text" id="namaKegiatan" placeholder="Contoh: Ibadah Raya Khusus">
+            </div>
+            <button class="btn-submit" id="tambahJadwalBtn">Tambah Jadwal</button>
+            <button class="btn-outline btn-cancel-edit" id="batalEditBtn" style="display:none;">Batalkan Edit</button>
+            <div class="inline-msg" id="msgTambah" style="display:none;">Jadwal berhasil ditambahkan &#10003;</div>
+          </div>
+
+          <!-- Daftar ibadah khusus yang sudah dibuat -->
+          <div class="jadwal-list-wrap">
+            <h3 class="list-title">Ibadah Khusus yang Sudah Dibuat</h3>
+            <div id="jadwalKhususList"></div>
+          </div>
+        </section>
+
+        <section class="admin-panel">
+          <div class="panel-title">
+            <h2>Kelola Jadwal yang Sudah Ada</h2>
+            <p class="panel-sub">Pilih kategori, lalu klik Edit untuk mengubah atau Hapus untuk membuang jadwal.</p>
+          </div>
+          <div class="admin-form">
+            <div class="form-group">
+              <!-- Pilihan kategori untuk melihat & mengelola jadwal yang ada -->
+              <label for="kelolaKategori">Kategori</label>
+              <select id="kelolaKategori">
+                <option value="raya">Ibadah Raya / Umum</option>
+                <option value="anak">Sekolah Minggu</option>
+                <option value="kpr">KPR (Pemuda &amp; Remaja)</option>
+                <option value="khusus">Ibadah Khusus Lainnya</option>
+              </select>
+            </div>
+            <button class="btn-submit" id="tampilkanKelolaBtn">Tampilkan Jadwal Kategori Ini</button>
+          </div>
+          <div class="table-scroll">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Hari</th>
+                  <th>Nama Kegiatan</th>
+                  <th>Jam</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="kelolaTableBody"></tbody>
+            </table>
+            <p class="empty-note">Gunakan tombol Edit untuk mengubah jadwal, atau Hapus untuk membuang jadwal.</p>
+          </div>
+          <div class="empty-note" id="emptyKelola">Belum ada jadwal untuk kategori ini.</div>
+        </section>
+
+      </div>
+
+      <!-- ==================== HALAMAN MENU: DATA JEMAAT ==================== -->
+      <div class="admin-menu-page" id="halaman-jemaat" style="display:none;">
+
+        <section class="admin-panel">
+          <div class="panel-title">
+            <h2>Data Jemaat Terdaftar</h2>
+            <p class="panel-sub">Daftar jemaat baru yang mengisi formulir di halaman publik.</p>
+          </div>
+          <div class="table-scroll">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Nama</th>
+                  <th>Tanggal Lahir</th>
+                  <th>No. HP/WA</th>
+                  <th>Alamat Rumah</th>
+                </tr>
+              </thead>
+              <tbody id="jemaatTableBody"></tbody>
+            </table>
+          </div>
+          <div class="empty-note" id="emptyJemaat">Belum ada jemaat terdaftar.</div>
+        </section>
+
+      </div>
+
+      <!-- ==================== HALAMAN MENU: POKOK DOA ==================== -->
+      <div class="admin-menu-page" id="halaman-doa" style="display:none;">
+
+        <section class="admin-panel">
+          <div class="panel-title">
+            <h2>Permohonan Doa Masuk</h2>
+            <p class="panel-sub">Daftar permohonan doa yang dikirim jemaat (dengan status privasi).</p>
+          </div>
+          <div class="table-scroll">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Pokok Doa</th>
+                  <th>Privasi</th>
+                  <th>Tgl Masuk</th>
+                </tr>
+              </thead>
+              <tbody id="doaTableBody"></tbody>
+            </table>
+          </div>
+          <div class="empty-note" id="emptyDoa">Belum ada permohonan doa.</div>
+        </section>
+
+      </div>
+
+    </main>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

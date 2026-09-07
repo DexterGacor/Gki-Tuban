@@ -1,0 +1,293 @@
+﻿LAPISAN AUDIT PROYEK WEBSITE GKI TUBAN
+========================================
+
+Tanggal Audit: 07 September 2026
+Lokasi: D:\Web Gki Tuban\gereja
+
+========================================
+1. STRUKTUR FILE
+========================================
+
+Daftar lengkap file beserta ukuran dan tanggal modifikasi:
+
+1. admin.html          : 11,631 bytes   | Terakhir: 01/09/2026 11:32:20
+2. admin.js            : 35,154 bytes   | Terakhir: 07/07/2026 09:22:06
+3. app.js              : 14,201 bytes   | Terakhir: 07/07/2026 09:45:29
+4. index.html          : 16,957 bytes   | Terakhir: 07/07/2026 11:54:46
+5. logo gki.png        : 20,651 bytes   | Terakhir: 30/08/2026 19:50:09
+6. profil.html         : 14,999 bytes   | Terakhir: 07/07/2026 11:36:56
+7. SEJARAH SINGKAT GKI TUBAN.docx : 24,387 bytes | Terakhir: 02/09/2026 14:52:33
+8. SEJARAH SINGKAT GKI TUBAN.txt  : 4,930 bytes   | Terakhir: 02/09/2026 17:18:30
+9. styles.css          : 29,179 bytes   | Terakhir: 07/07/2026 11:37:00
+
+Total: 9 file (7 HTML/CSS/JS + 2 dokumen teks/sejarah)
+
+========================================
+2. ISI FILE YANG DIINVESTIGASI
+========================================
+
+2.1 index.html (Halaman Publik Utama)
+-------------------------------------
+Status: VALID - Halaman utama yang komprehensif
+
+Fitur utama yang ditemukan:
+- Header dengan logo GKI Tuban dan navigasi utama
+- Hero banner dengan ayat IBrani 4:16
+- Jadwal Ibadah dengan tab (Ibadah Raya, Sekolah Minggu, KPR)
+- Warta Jemaat section
+- Formulir Jemaat Baru
+- Profile Sejarah GKI Tuban
+- Permohonan Doa section
+- Footer dengan informasi kontak dan media sosial
+
+Catatan: Struktur HTML terlihat umum valid, namun ada area yang perlu perhatian:
+- Pada barisan 115-126 terdapat div yang tidak terstruktur dengan closing tag berlebih/
+  tidak sepadan. Struktur tab-content untuk kategori KPR tampak tidak sinkron dengan
+  pembukaan tab. Pengamatan: setelah tab "Anak" berakhir, ada beberapa close tag
+  yang masih mencoba menutup struktur KPR yang seharusnya ada di tab-content terpisah.
+
+2.2 app.js (Script Halaman Publik)
+-----------------------------------
+Status: FUNCTIONAL - Mengelola interaktivitas halaman publik
+
+Fungsi utama:
+- Menampilkan tanggal hari di section Warta (tampilkanTanggalHariIni)
+- Memuat data Warta dari localStorage (muatWarta)
+- Merender jadwal ibadah per tab (renderJadwal, renderJadwalKhusus)
+- Inisialisasi tab navigasi (inisialisasiTab)
+- Mobile menu (inisialisasiMenu)
+- Scroll spy untuk highlight menu aktif (inisialisasiScrollSpy)
+- Formulir Jemaat Baru (inisialisasiFormJemaat)
+- Formulir Permohonan Doa (inisialisasiFormDoa)
+- Simpan/load data via localStorage (bacaData, tulisData)
+
+Arsitektur data:
+- KEY_WARTA: menyimpan data warta (array of objects)
+- KEY_JADWAL: menyimpan jadwal ibadah (raya, anak, kpr, khusus)
+- KEY_JEMAAT: menyimpan daftar jemaat terdaftar
+- KEY_DOA: menyimpan permohonan doa
+
+2.3 styles.css (Gaya Visual)
+-----------------------------
+Status: CONSISTENT - Gaya yang konsisten dengan warna yang identifis
+
+CSS Variables (di :root):
+- --warna-emas: #b8860b (emas)
+- --warna-emas-terang: #d4af37 (emas terang)
+- --warna-cokelat: #5d4037 (cokelat)
+- --warna-cokelat-gelap: #3e2c28 (cokelat gelap)
+- --warna-krem: #faf6ef (krem)
+- --warna-krem-gelap: #f1e9dc (krem gelap)
+- --warna-biru-doa: #3f51b5 (BIRU - indigo) <-- INI YANG DIMINTANGKAN
+- --warna-hijau: #2e7d32 (hijau)
+- --warna-merah: #c62828 (merah)
+- --warna-teks: #33302c (teks utama)
+- --warna-teks-muda: #6d645c (teks muda)
+- --warna-putih: #ffffff (putih)
+- --warna-garis: #e5dccb (garis pembatas)
+
+Penggunaan --warna-biru-doa (#3f51b5):
+- .btn-submit-doa: Tombol submit formulir doa (gradient #5f6fb8 ke #3f51b5)
+- .vm-card: Kartu visi/misi di halaman profil (border kiri dan warna teks)
+- .warta-file-pdf a: Link download PDF (gradient emas)
+
+2.4 admin.html (Halaman Admin)
+--------------------------------
+Status: FUNCTIONAL - Halaman pengurus dengan proteksi PIN
+
+Fitur:
+- PIN login 4 angka (default: "1234")
+- Menu navigasi yang dapat dipilih (Dashboard, Warta, Jadwal, Jemaat, Doa)
+- Formulir kelola werta (tambah/edit/hapus)
+- Formulir kelola jadwal (ambah/edit/hapus jadwal ibadah khusus)
+- Tabel data jemaat terdaftar
+- Tabel permohonan doa
+- Statistik dashboard (jemaat, doa, ulang tahun)
+
+2.5 profil.html (Halaman Profil)
+---------------------------------
+Status: VALID - Halaman profil lengkap GKI Tuban
+
+Fitur:
+- Visi & Misi gereja
+- Timeline sejarah lengkap (1984-2006)
+- Struktur organisasi pengurus
+- Daftar pelayanan & kegiatan rutin
+- Konclusion dan blessing
+
+========================================
+3. CSS VARIABLES RELATED TO COLORS (especially blue/warna-biru)
+========================================
+
+Ditemukan 1 CSS variable warna biru spesifik:
+
+--warna-biru-doa: #3f51b5 (Indigo/Navy Blue)
+
+Penggunaan di styles.css:
+1. Line 10: Definisi variable di :root
+2. Line 576: .btn-submit-doa - Tombol submit doa dengan gradient dari #5f6fb8 ke #3f51b5
+3. Line 1305: .vm-card border-left: 5px solid var(--warna-biru-doa) - Border kiri kartu visi/misi
+4. Line 1309: .vm-card h4 color: var(--warna-biru-doa) - Warna teks judul visi/misi
+
+Analisis: Warna biru --warna-biru-doa digunakan secara konsisten untuk elemen-elemen
+yang berkaitan dengan doa/permohonan dan visi/misi gereja. Warna ini mengisolir elemen-
+elemen yang "spesial" atau "penting" dalam konteks spiritual (doa, misi). Warna ini
+sejalan dengan warna indigo standar dan tidak bertabra dengan warna emas/cokelat
+sejak paling dasar.
+
+========================================
+4. JAVASCRIPT FUNCTIONS RELATED TO WARTA/JADWAL/ADMIN FEATURES
+========================================
+
+Fungsi-app.js (Halaman Publik):
+- renderJadwal(): Merender 3 tab jadwal bawaan (raya, anak, kpr) dari localStorage
+- renderJadwalKhusus(): Menambahkan tab jadwal khusus yang didefinisikan admin
+- muatWarta(): Memuat dan menampilkan data warta dari localStorage
+- inisialisasiTab(): Mengaktifkan click pada tab navigasi jadwal
+- inisialisasiMenu(): Mobile menu toggle
+- inisialisasiScrollSpy(): Highlight menu saat scroll ke section
+- inisialisasiFormJemaat(): Submit formulir jemaat baru ke localStorage
+- inisialisasiFormDoa(): Submit formulir permohonan doa ke localStorage
+
+Fungsi-admin.js (Halaman Admin):
+- inisialisasiKelolaJadwal(): Inisialisasi seluruh fitur kelola jadwal di admin
+- inisialisasiTambahJadwal(): Menambah jadwal baru (biasawa atau khasus)
+- simpanJadwal(): Menyimpan objek jadwal ke localStorage
+- hapusJadwal(): Menghapus baris jadwal
+- muatDaerahKelola(): Mengisi tabel kelola jadwal
+- renderDaftarKhususRingkas(): Ringkasan daftar jadwal khusus
+- muatWartaKeForm(): Memuat warta ke form edit
+- renderDaftarWarta(): Menampilkan daftar warta di admin (edit/hapus)
+- mulaiEditWarta()/akhiriModeEditWarta(): Mode edit warta
+- hapusWarta(): Hapus werta
+- inisialisasiPin(): Proteksi PIN 4 angka
+- inisialisasiMenuAdmin(): Navigasi antar halaman admin
+- loadSemuaData(): Muat semua data dashboard setelah login
+
+Fitur kunjungan data (localStorage):
+- Data jadwal bisa disimpan dan dimuat kembali admin
+- Data warta (teks + file base64 gambar/PDF) bisa disimpan
+- Data jemaat dan doa terdaftar secara bertahap
+
+========================================
+5. ISSUES & POTENTIAL IMPROVEMENTS
+========================================
+
+5.1 Issues Ditemukan:
+
+A. Struktur HTML tidak konsisten di indexabad (lines 115-126)
+   - setelah tab "Anak" berakhir, ada div closing/opening yang tidak sepenuhnya
+   - terlihat seperti KPR tab content berada di dalam struktur yang salah
+   - Mungkin menyebabkan tab KPR tidak menampilkan konten dengan benar atau
+     menimbulkan layout break di browser
+
+B. File gambar logo dengan spasi di nama
+   - "logo gki.png" memiliki spasi
+   - Meskipun bekerja di Windows, bisa menjadi masalah pada server web
+   - Direkomendasikan mengganti underscore atau hyphen: "logo_gki.png"
+
+C. Missing accessibility attributes
+   - Beberapa tombol dan link kurang memiliki aria-label yang deskriptif
+   - Formulir doa tidak memiliki label yang ter-associated dengan input
+
+D. Konsistensi warna pada halaman publik
+   - --warna-biru-doa (#3f51b5) hanya digunakan di section doa dan profil
+   - Pada halaman utama (index.html), warna biru tidak digunakan secara signifikan
+   - Skema warna utama: cokelat (brown), emas (gold), cream (cream)
+   - Disarankan untuk memperluas penggunaan warna biru secara meragam jika diinginkan
+
+E. Potensi konflik namespace antara app.js dan admin.js
+   - Keduanya mendefinisikan var dengan nama serupa (KEY_WARTA, KEY_JADWAL, dll)
+   - Jika keduanya ter-load di satu halaman, ada risiko definisi ganda
+   - Namun karena admin.html tidak termasuk di index.html (dan sebaliknya), belum
+     menjadi masalah nyata
+
+5.2 Suggestions for Improvements:
+
+A. Perbaiki struktur HTML di index.html
+   - Pastikan setiap tab (raya, anak, kpr) memiliki pembukaan dan penutup div yang
+     sepenuhnya seimbang
+   - Validasi HTML melalui validator W3C
+
+B. Ekstrak warna biru ke penggunaan yang lebih luas
+   - Gunakan --warna-biru-doa untuk warna link, hover state, atau elemen CTA lainnya
+   - Buat variasi warna (--warna-biru-terang, --warna-biru-gelap) jika butuh gradient
+
+C. Perbaikan responsive pada tab jadwal
+   - Di mobile, tab-buttons sudah full width (sudah oke)
+   - Pastikan schedule-card tetap menarik di layar kecil
+   - Test tombol tab active state di touch device
+
+D. Optimasi performa localStorage
+   - Data yang terlalu besar di localStorage bisa memengaruhi performa
+   - Pertimbangkan limit ukuran data atau clean-up rutin
+
+E. Tambah fallback untuk missing localStorage
+   - Pastikan semua bacaData selalu memiliki fallback yang tepat
+   - Validasi tipe data sebelum di-parse JSON
+
+F. Tingkatkan accessibility di admin panel
+   - Tambah aria-label pada input PIN
+   - Tambah fokus visible pada elemen yang dapat di-focus
+   - Validasi panjang PIN sebelum submit
+
+========================================
+6. BROKEN REFERENCES OR MISSING FILES
+========================================
+
+6.1 Referensi yang Dianspect:
+- Semua file CSS dan JS terhubung dengan benar di HTML yang sesuai
+- index.html -> styles.css dan app.js: ✓ TERKONEKSI
+- admin.html -> styles.css dan admin.js: ✓ TERKONEKSI  
+- profil.html -> styles.css dan app.js: ✓ TERKONEKSI
+
+6.2 Referensi Gambar:
+- logo gki.png: ✓ DITEMUKAN dan terintegrasi di index.html dan profil.html
+- Path: "logo gki.png" (dengan spasi) - ✓ WORKING di environment lokal
+
+6.3 Referensi Eksternal:
+- Google Fonts (Crimson Pro & Source Sans 3): ✓ PRECONNECT terdaftar di semua HTML
+- Link media sosial (YouTube, Instagram, Facebook, WhatsApp, Email): ✓ SEMUA TERDAFTAR
+- Beberapa link Facebook menunjuk ke "https://facebook.com" (placeholder) - ⚠️ PERIKSA
+
+6.4 Broken Link Analysis:
+- Tidak ada file yang sebenarnya "rusak" (404)
+- Link sosial media mungkin perlu diupdate dengan akun aktual
+- Link "https://facebook.com" di index.html dan profil.html hanyalah placeholder
+
+========================================
+7. RINGKASAN AKHIR
+========================================
+
+FILE STRUCTURE COMPLETENESS: 8/10
+- Semua file inti ada dan terstruktur dengan baik
+- ada satu masalah struktur HTML di index.html (lines 115-126) yang perlu perbaiki
+- File gambar logo memiliki nama dengan spasi (rekomendasi perbaiki)
+
+CSS STYLING CONSISTENCY: 7.5/10
+- Warna dan gaya konsisten di seluruh proyek
+- --warna-biru-doa digunakan dengan baik namun hanya terlimit pada area tertentu
+- Skema warna cokelat-emas-krem sangat konsisten
+- Disarankan ekspansi penggunaan warna biru jika diinginkan
+
+JAVASCRIPT FUNCTIONALITY: 8/11
+- Fitur jadwal, warta, formulir semuanya berfungsi dengan baik
+- localStorage implementation solid
+- Admin panel lengkap dengan PIN proteksi
+- Beberapa fungsi edge case belum diuji (seperti data lokal kosong)
+
+ISSUES FOUND (especially warna-biru-doa):
+1. Struktur HTML tidak seimbang di jadwal section index.html
+2. Nama file logo mengandung spasi
+3. Warna biru --warna-biru-doa belum digunakan maximal di seluruh halaman
+4. Beberapa elemen accessibility bisa ditingkatkan
+
+SUGGESTIONS FOR IMPROVEMENTS:
+1. Perbaiki struktur HTML tab jadwal di index.html
+2. Perbaiki nama file logo (ganti spasi dengan underscore)
+3. Perluas penggunaan --warna-biru-doa ke area lain jika ingin menekankan warna ini
+4. Tambah aria-label dan accessibility improvements
+5. Validasi data tambah di form admin
+6. Test semua fitur di berbagai browser dan device ukuran
+
+--- AKHIR LAPISAN AUDIT ---
