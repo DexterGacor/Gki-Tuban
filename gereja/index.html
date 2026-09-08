@@ -112,16 +112,13 @@
         </div>
       </div>
 
-      
-        </div>
+      <div class="tab-content" id="tab-kpr">
         <div class="schedule-card">
           <div class="schedule-day">Sabtu</div>
           <div class="schedule-detail">
             <strong>Komisi Pemuda (Kuliah &amp; Kerja)</strong>
             <span>18:00 — 19:30 WIB</span>
           </div>
-        </div>
-        
         </div>
       </div>
     </section>
@@ -166,7 +163,7 @@
           <label for="alamatRumah">Alamat Rumah</label>
           <input type="text" id="alamatRumah" placeholder="Contoh: Jl. Kenanga No. 10, Tuban" required>
         </div>
-        <button type="submit" class="btn-submit">Kirim Data</button>
+        <button type="submit" class="btn-submit" id="btnSubmitJemaat">Kirim Data</button>
       </form>
       <div class="form-success" id="successJemaat" style="display:none;">
         <div class="success-icon">&#10003;</div>
@@ -252,7 +249,7 @@
             </label>
           </div>
         </div>
-        <button type= "submit" class="btn-submit btn-submit-doa">Kirim Permohonan Doa</button>
+        <button type="submit" class="btn-submit btn-submit-doa" id="btnSubmitDoa">Kirim Permohonan Doa</button>
       </form>
       <div class="form-success" id="successDoa" style="display:none;">
         <div class="success-icon">&#10003;</div>
@@ -269,7 +266,7 @@
       <p class="footer-addr">Jl. Dr. Wahidin Sudirohusodo, Gg. Mina, No. 135 Tuban</p>
       <p class="footer-contact">Telp/WA: 0813-3435-6727</p>
 
-<!-- Social Media -->
+      <!-- Social Media -->
       <div class="footer-social">
         <span class="social-label">Ikuti Kami</span>
         <div class="social-links">
@@ -285,19 +282,140 @@
           <a href="https://wa.me/6281334356727" target="_blank" rel="noopener noreferrer" class="social-link social-whatsapp" aria-label="WhatsApp GKI Tuban" title="WhatsApp">
             <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.454.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.472.099-.173.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.396.01-.594.01-.198 0-.42.01-.618.075-.198.074-.402.15-.57.224-.297.15-.669.224-1.044.074-.372-.149-1.094-.573-1.492-1.425-.396-.853-.6-.963-.84-.997-.24-.033-.51-.074-.789.1-.297.174-1.048.74-1.348 1.474-.3.736-.397 1.264-.248 1.553.134.274.42.593.805 1.01.396.42.855.955.997 1.154.075.099.14.198.18.3.04.099.04.199-.055.298-.074.099-.18.248-.375.248-.188 0-.574-.173-.854-.274-.323-.12-.607-.274-.805-.423-.198-.149-.497-.446-.57-.446-.099 0-.198.074-.247.124a.76.76 0 0 0-.124.198c-.075.274-.298.916-.373 1.19-.074.274-.099.472-.074.646.025.174.1.347.223.447.273.224 1.094 1.355 1.517 2.39.298.734.446 1.308.496 1.483.05.198.05.396.024.57-.024.174-.223.224-.447.298-.248.074-.522.05-.794.025-.199-.025-.423-.05-.62-.15-.198-.1-.371-.274-.547-.472-.174-.198-.273-.423-.323-.646-.05-.223-.024-.371.05-.52.074-.15.201-.323.349-.472.174-.173.374-.323.62-.423.273-.1.597-.05.945.025.372.074 1.397.524 1.842 1.524.396.88.523 1.676.597 2.175.049.348.024.524-.124.67-.149.149-.397.173-.62.074-.198-.074-.396-.248-.594-.423-.173-.173-.3-.397-.423-.646-.074-.199-.05-.372.025-.547.074-.198.248-.472.472-.646.248-.174.573-.248.849-.174.397.075.794.174 1.019.373.224.223.472.523.646.849.174.323.198.573.074.794-.124.224-.373.323-.598.15a1.77 1.77 0 0 1-.647-.597 1.73 1.73 0 0 1-.348-.67c-.074-.249-.05-.473.05-.647.074-.199.273-.373.523-.447.274-.074.548-.05.823.05.174 0 .373-.025.547-.1.174-.074.397-.223.62-.398.224-.174.423-.374.597-.598.173-.223.223-.446.124-.62-.075-.149-.3-.274-.573-.3-.247-.025-.523-.025-.798-.025-.274 0-.548.025-.823.1-.273.074-.522.249-.746.473-.224.224-.423.524-.597.798-.174.274-.323.523-.398.748-.075.224-.075.423-.05.597.025.173.124.373.298.473.223.124.446.149.745.124.298-.025.62-.075.945-.274.323-.198.62-.473.895-.798.274-.323.523-.72.646-1.19.124-.473.05-1.019-.249-1.468a1.76 1.76 0 0 0-.648-.62c-.223-.173-.447-.3-.697-.374-.273-.074-.573-.1-.873-.1-.173 0-.347.025-.52.075z"/></svg>
           </a>
-          <a href="gki_tuban@yahoo.com " class="social-link social-email" aria-label="Email GKI Tuban" title="Email">
+          <a href="mailto:gki_tuban@yahoo.com" class="social-link social-email" aria-label="Email GKI Tuban" title="Email">
             <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
           </a>
         </div>
       </div>
-      </div>
-
-      <div class="footer-divider"></div>
-      <p class="footer-copy">&copy; 2026 GKI TUBAN.</p>
-      <!-- Tombol masuk admin, dikhususkan untuk pengurus gereja -->
-      <a href="admin.html" class="btn-admin-access">&#128274; Masuk Admin</a>
     </div>
+
+    <div class="footer-divider"></div>
+    <p class="footer-copy">&copy; 2026 GKI TUBAN.</p>
+    <!-- Tombol masuk admin, dikhususkan untuk pengurus gereja -->
+    <a href="admin.html" class="btn-admin-access">&#128274; Masuk Admin</a>
   </footer>
+
+  <!-- App Script Bawaan -->
   <script src="app.js"></script>
+
+  <!-- ===================== INTEGRASI FIREBASE REALTIME ===================== -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { 
+      getFirestore, 
+      collection, 
+      addDoc, 
+      onSnapshot, 
+      serverTimestamp,
+      query,
+      orderBy 
+    } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    // Konfigurasi Proyek Firebase GKI Tuban
+    const firebaseConfig = {
+      apiKey: "AIzaSy...", 
+      authDomain: "gki-tuban-422a1.firebaseapp.com",
+      projectId: "gki-tuban-422a1",
+      storageBucket: "gki-tuban-422a1.appspot.com",
+      messagingSenderId: "123456789",
+      appId: "1:123456789:web:abc123def456"
+    };
+
+    // Inisialisasi Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // -------------------------------------------------------------
+    // 1. SIMPAN DATA JEMAAT BARU KE FIRESTORE
+    // -------------------------------------------------------------
+    const formJemaatBaru = document.getElementById('formJemaatBaru');
+    if (formJemaatBaru) {
+      formJemaatBaru.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = document.getElementById('btnSubmitJemaat');
+        btn.disabled = true;
+        btn.innerText = "Sending...";
+
+        try {
+          await addDoc(collection(db, "jemaat_baru"), {
+            namaLengkap: document.getElementById('namaLengkap').value,
+            tanggalLahir: document.getElementById('tanggalLahir').value,
+            noTelp: document.getElementById('noTelp').value,
+            alamatRumah: document.getElementById('alamatRumah').value,
+            createdAt: serverTimestamp()
+          });
+
+          formJemaatBaru.style.display = 'none';
+          document.getElementById('successJemaat').style.display = 'block';
+        } catch (error) {
+          console.error("Error menyimpan jemaat baru: ", error);
+          alert("Gagal mengirim data. Silakan coba lagi.");
+          btn.disabled = false;
+          btn.innerText = "Kirim Data";
+        }
+      });
+    }
+
+    // -------------------------------------------------------------
+    // 2. SIMPAN PERMOHONAN DOA KE FIRESTORE
+    // -------------------------------------------------------------
+    const formDoa = document.getElementById('formDoa');
+    if (formDoa) {
+      formDoa.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = document.getElementById('btnSubmitDoa');
+        btn.disabled = true;
+        btn.innerText = "Sending...";
+
+        const privasi = document.querySelector('input[name="privasiDoa"]:checked').value;
+
+        try {
+          await addDoc(collection(db, "permohonan_doa"), {
+            pokokDoa: document.getElementById('pokokDoa').value,
+            privasi: privasi,
+            createdAt: serverTimestamp()
+          });
+
+          formDoa.style.display = 'none';
+          document.getElementById('successDoa').style.display = 'block';
+        } catch (error) {
+          console.error("Error menyimpan doa: ", error);
+          alert("Gagal mengirim permohonan doa. Silakan coba lagi.");
+          btn.disabled = false;
+          btn.innerText = "Kirim Permohonan Doa";
+        }
+      });
+    }
+
+    // -------------------------------------------------------------
+    // 3. WARTA JEMAAT REAL-TIME (FIRESTORE)
+    // -------------------------------------------------------------
+    const wartaBody = document.getElementById('wartaBody');
+    if (wartaBody) {
+      const q = query(collection(db, "warta_jemaat"), orderBy("createdAt", "desc"));
+      
+      onSnapshot(q, (snapshot) => {
+        if (snapshot.empty) {
+          wartaBody.innerHTML = '<p class="warta-item-teks">Belum ada warta jemaat terbaru.</p>';
+          return;
+        }
+
+        let htmlContent = '';
+        snapshot.forEach((doc) => {
+          const data = doc.data();
+          htmlContent += `
+            <div class="warta-item" style="margin-bottom: 15px; padding: 10px; border-bottom: 1px solid #eee;">
+              <h3 style="margin-bottom: 5px; color: #2c3e50;">${data.judul || 'Informasi'}</h3>
+              <p class="warta-item-teks">${data.isi || ''}</p>
+            </div>
+          `;
+        });
+        wartaBody.innerHTML = htmlContent;
+      }, (error) => {
+        console.error("Error membaca warta jemaat: ", error);
+        wartaBody.innerHTML = '<p class="warta-item-teks">Gagal memuat warta jemaat.</p>';
+      });
+    }
+  </script>
 </body>
 </html>
