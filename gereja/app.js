@@ -9,6 +9,79 @@ var KEY_JADWAL = "gkkc_jadwal";
 var KEY_JEMAAT = "gkkc_jemaat";
 var KEY_DOA = "gkkc_doa";
 
+// ---- Inisialisasi Firebase ----
+const db = window.db; // sudah didefinisikan dari index.html
+
+// ---- Fungsi baca tulis Firestore ----
+async function bacaDataFirestore(kunci, fallback) {
+  try {
+    const snapshot = await getDocs(collection(db, kunci));
+    const data = [];
+    snapshot.forEach((doc) => data.push({ id: doc.id, ...doc.data() }));
+    return data.length > 0 ? data : fallback;
+  } catch (e) { return fallback; }
+}
+
+function tulisDataFirestore(kunci, data) {
+  return addDoc(collection(db, kunci), data);
+}
+
+// ---- Fungsi muatWarta dari Firestore (GANTI fungsi lama) ----
+async function muatWarta() {
+  var data = await bacaDataFirestore("gkkc_warta", []);
+  var body = document.getElementById("wartaBody");
+  if (!body) return;
+
+  if (data.length === 0) {
+    body.innerHTML = '<p class="warta-item-teks">Belum ada warta untuk ditampilkan.</p>';
+    return;
+  }
+
+  var html = "";
+  for (var i = 0; i < data.length; i++) {
+    var w = data[i];
+    html += '<div class="warta-item">';
+    
+    if (w.tanggalUpdate) {
+      html += '<div class="warta-item-date">' + formatTanggalRingkas(w.tanggalUpdate) + '</div>';
+    }
+
+    var adaFile = w.fileBase64 && w.fileType;
+    if (adaFile) {
+      html += renderFileWarta(w);
+    }
+
+    var isPdf = adaFile && w.fileType === "application/pdf";
+    if (w.teks && w.teks.trim().length > 0 && !isPdf) {
+      html += '<div class="warta-item-teks">' + aman(w.teks) + '</div>';
+    }
+
+    html += '</div>';
+  }
+  body.innerHTML = html;
+}
+
+// ---- Fungsi simpanWarta ke Firestore (GANTI fungsi lama) ----
+async function simpanWartaKeFirestore(wartaData) {
+  await tulisDataFirestore("gkkc_warta", {
+    teks: wartaData.teks,
+    fileBase64: wartaData.fileBase64,
+    fileType: wartaData.fileType,
+    fileName: wartaData.fileName,
+    tanggalUpdate: new Date().toISOString()
+  });
+}
+
+// ---- Fungsi tambahan: hapus warta ke Firestore ----
+async function hapusWartaFirebase(idx) {
+  var data = await bacaDataFirestore("gkkc_warta", []);
+  if (idx >= 0 && idx < data.length) {
+    await deleteDoc(doc(db, "gkkc_warta", data[idx].id));
+  }
+  muatWarta();
+}
+
+// ---- Akhir fungsi Firestore ----
 // ---- Tanggal default bila data jadwal belum di-set admin ----
 var jadwalDefault = {
   raya: [
