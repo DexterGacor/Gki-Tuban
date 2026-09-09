@@ -13,6 +13,24 @@
 <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore.js"></script>
 
 <script>
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY_HERE",
+    authDomain: "gki-tuban.firebaseapp.com",
+    projectId: "gki-tuban",
+    storageBucket: "gki-tuban.firebasestorage.app",
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    appId: "YOUR_APP_ID_HERE"
+  };
+  
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+</script>
+  
+  <!-- Firebase Setup -->
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore.js"></script>
+
+<script>
   // konfigurasi Firebase dari console
   const firebaseConfig = {
     apiKey: "YOUR_API_KEY",
